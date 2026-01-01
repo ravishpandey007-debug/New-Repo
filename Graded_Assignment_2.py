@@ -1,24 +1,16 @@
 import pandas as pd
 import phonenumbers
 from phonenumbers import PhoneNumberFormat
-import csv
-import io
 
-# load csv using csv reader to handle quotes properly
-data = []
-with open("customers_raw.csv", "r", encoding='utf-8-sig') as f:
-    reader = csv.reader(f, quotechar='"', delimiter=',')
-    for row in reader:
-        data.append(row)
+# load the data
 
-df = pd.DataFrame(data[1:], columns=data[0])  # first row is header
-# normalize column names to avoid KeyError (strip whitespace and lowercase)
-df.columns = df.columns.str.strip().str.lower()
+df = pd.read_csv("customers_raw_excel.csv")
 
 # remove missing emails
 
 df = df.dropna(subset=["email"])
 df = df[df["email"].str.strip() != ""]
+
 
 # clean phone numbers
 
@@ -48,3 +40,4 @@ df = df.drop_duplicates(subset=["email"])
 # save the file 
 
 df.to_csv("Cleaned_customers_rav.csv", index=False)
+print(df.columns.tolist())
