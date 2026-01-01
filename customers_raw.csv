@@ -1,4 +1,4 @@
-"customer_id,first_name,last_name,email,phone,city,registration_date"
+"customer_id,first_name,last_name,e_mail,phone,city,registration_date"
 "C001,Rahul,Sharma,rahul.sharma@gmail.com,9876543210,Bangalore,2023-01-15"
 "C002,Priya,Patel,priya.patel@yahoo.com,+91-9988776655,Mumbai,2023-02-20"
 "C003,Amit,Kumar,,9765432109,Delhi,2023-03-10"
